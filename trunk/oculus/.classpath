@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="WEB-INF/src"/>
+	<classpathentry kind="src" path="WEB-INF/classes"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/cmu_time_awb.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/cmu_us_kal.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/cmudict04.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/cmulex.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/cmutimelex.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/en_us.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/freetts-jsapi10.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/freetts.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jacob.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jasypt-1.6.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/RXTXcomm.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/stuff/Red5/red5.jar"/>
+	<classpathentry kind="lib" path="C:/stuff/Red5/lib/spring-core-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/stuff/Red5/lib/slf4j-api-1.5.10.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>

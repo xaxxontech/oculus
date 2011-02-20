@@ -1,0 +1,338 @@
+package oculus
+{
+	//	import flash.display.BitmapData;
+	import flash.utils.ByteArray;
+	
+	public class OculusImage 
+	{
+		private var parr:Array = []; // working pixels, whole image, 8-bit greyscale 
+		private var lastparr:Array=[];
+		//private var imgaverage:int;
+		private var width:int;
+		private var height:int;
+		private var lastblob:Array = [];
+		private var lastThreshhold:int;
+		private var threshholdMult:Number = 0.65;
+		private var lastblobSize:int;
+		private var lastBlobRatio:Number;
+		private var lastCornerRatio:Number;
+		private var lastNonCornerRatio:Number;
+		
+		public function OculusImage()
+		{
+		}
+		
+		public function convertToGrey(pixelRGB:ByteArray):void {
+			// uses 30-59-11 RGB weighting from: http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
+			var p:int;
+			var n:int = 0;
+			//var runningttl:int = 0;			
+			parr = [];
+			for (var i:int=0; i < pixelRGB.length; i+=4) {
+				p = pixelRGB[i+1]*0.3 + pixelRGB[i+2]*0.59 + pixelRGB[i+3]*0.11 ;
+				parr[n]=p;
+				n++;
+				//runningttl += p;
+			}
+			//imgaverage = runningttl/pixelRGB.length;
+			lastparr=parr.slice();  // maybe devel only, remove if unused
+		}
+		
+		public function processedImage():ByteArray {
+			var newPixels:ByteArray = new ByteArray();
+			var n:int = 0;
+			var p:int;
+			for each (var i:Boolean in parr) {
+				if (i) { p=255; }
+				else { p=0; }
+				newPixels[n]=255;
+				newPixels[n+1]=p;
+				newPixels[n+2]=p;
+				newPixels[n+3]=p;
+				n+=4;
+			}
+			return newPixels;		
+		}
+		
+		public function blobOverlay():ByteArray {
+			var newPixels:ByteArray = new ByteArray();
+			var n:int = 0;
+			var i:int;
+			for each (i in lastparr) {
+				newPixels[n]=255;
+				newPixels[n+1]=i; 
+				newPixels[n+2]=i;
+				newPixels[n+3]=i;
+				n+=4;
+			}
+			for (n=0;n<lastblob.length;n++) {
+				if (lastblob[n]) {
+					newPixels[(n*4)+1]=255; // red
+				}
+			}
+			return newPixels;		
+		}
+		
+		public function colorTest(argb:ByteArray):ByteArray {
+			var a:ByteArray = new ByteArray;
+			var th:int = 128;
+			var p:int;
+			var f:int = 1.1;
+			var red:int;
+			var green:int;
+			var blue:int;
+			for (var i:int=0; i < argb.length; i+=4) {
+				a[i]= 255;
+				red = argb[i+1];
+				green = argb[i+2];
+				blue = argb[i+3];
+				p = red*0.3 + green*0.59 + blue*0.11 ; 
+
+				if (red>p*f && green<p && blue<p ) {
+				//if (red>(p*1.1) && blue<(p/1.1) && green<(p/1.1)) {
+					a[i+1] = 0;
+					a[i+2] = 0;
+					a[i+3] = 255;
+				}
+				else {
+					a[i+1] = p;
+					a[i+2] = p;
+					a[i+3] = p;
+				}
+			}
+			/*
+			var newbar:ByteArray = new ByteArray();
+			for (i=0; i < argb.length; i++) {
+				newbar[i] = a[i];
+			}
+			*/
+			return a;
+		}
+				
+		
+		public function findBlobStart(x:int, y:int, w:int, h:int, bar:ByteArray):Array {
+			width = w;
+			height = h;
+			/*
+			if (bar.length > 0) { 
+				convertToGrey(bar);
+				lastparr=parr.slice();  // maybe devel only, remove if unused
+			}
+			else { parr=lastparr.slice(); }
+			*/
+			convertToGrey(bar);
+			var blob:Array = new Array(); 
+			var start:int = x + y*width; 
+			var result:Array = [0,0,0,0,0,0];
+			var threshhold:int = parr[start]*threshholdMult;
+			lastThreshhold = threshhold;
+			var i:int;
+			for (i=0;i<parr.length;i++){
+				if (parr[i]>threshhold) { parr[i]=true; }
+				else { parr[i]=false; }
+			}
+			//if (parr[start] == 0) { return rect; } // fail, didn't click on white
+			blob[start]=true;	
+			for (i=start; i<parr.length; i++) { //start to end
+				// below wraps blob, doesn't check if right on screen edge, but seems to work 
+				if (parr[i] && (blob[i-1] || blob[i+1] || blob[i-width] || blob[i+width])){
+					blob[i]=true;
+				}
+			}
+			for (i=start; i>=0; i--) { // end to start
+				if (parr[i] && (blob[i-1] || blob[i+1] || blob[i-width] || blob[i+width])){
+					blob[i]=true;
+				}
+			}
+			for (i=0; i<=width*height; i++) { // another pass, zero to end
+				if (parr[i] && (blob[i-1] || blob[i+1] || blob[i-width] || blob[i+width])){
+					blob[i]=true;
+				}
+			}
+			for (i=width*height; i>=0; i--) { //end to zero
+				if (parr[i] && (blob[i-1] || blob[i+1] || blob[i-width] || blob[i+width])){
+					blob[i]=true;
+				}
+			}
+			if (blob.length>1) { // error, its always greater than 1!!  should be 'contains at least one TRUE'? or just remove condition
+				result =  blobResult(blob,start);
+			}
+			lastblob=blob.slice(); // maybe only for development, remove if unnceccessary
+			return result;
+		}
+		
+		public function findBlobs(bar:ByteArray, w:int, h:int):Array {
+			width = w;
+			height = h;
+			var blobs:Array=new Array();
+			var result:Array = [0,0,0,0,0,0];
+			//var imgaverageOld:int = imgaverage;
+			convertToGrey(bar);
+			var threshhold:int = lastThreshhold;//*imgaverage/imgaverageOld; //could make this better by averaging the previous blob
+			var i:int;
+			var totalBlobsPixelsCount:int = 0;
+			for (i=0; i<parr.length; i++){
+				if (parr[i]>threshhold) { 
+					parr[i]=true;
+					totalBlobsPixelsCount++;
+				}
+				else { parr[i]=false; }
+			}
+			var parrhit:Array = parr.slice();
+			var blobnum:int = 0;
+			var totalBlobsPixelsCounted:int = 0;
+			var maxdiff:Number = 999999999;
+			var diff:Number;
+			var winner:int =-1;
+			var winnerPixelCount:int; 
+			var winRect:Array;
+			var winnerCornerRatio:Number;
+			var winnerBlobRatio:Number;
+			var winnerNonCornerRatio:Number;
+			var lastEqTrue:int;
+			var startx:int;
+			var starty:int;
+			var endx:int;
+			var endy:int; 
+			var cornerRatio:Number;
+			var blobRatio:Number;
+			var nonCornerRatio:Number;
+			while (totalBlobsPixelsCounted < totalBlobsPixelsCount) {
+				blobs[blobnum] = [];
+				for (i=0; i<=width*height; i++) { // zero to end
+					if (parrhit[i] && (blobs[blobnum].length==0 || blobs[blobnum][i-1] || blobs[blobnum][i+1] ||
+							 blobs[blobnum][i-width] || blobs[blobnum][i+width])){
+						parrhit[i]=false;
+						blobs[blobnum][i]=true;
+						totalBlobsPixelsCounted++;
+						lastEqTrue = i;
+					}
+				}
+				for (i=width*height; i>=0; i--) { // end to zero
+					if (parrhit[i] && (blobs[blobnum].length==0 || blobs[blobnum][i-1] || blobs[blobnum][i+1] ||
+							 blobs[blobnum][i-width] || blobs[blobnum][i+width])){
+						parrhit[i]=false;
+						blobs[blobnum][i]=true;
+						totalBlobsPixelsCounted++;
+						lastEqTrue = i;
+					}
+				}
+				
+				// test: check for blob that is closest upper right pixel ratio, & overall ratio & remaining 3/4 pixel ratio
+				// ** GET bottom L&R halves ratio (to get tilt), for future reference
+				var boundsRect:Array = getRect(blobs[blobnum],lastEqTrue); 
+				if (boundsRect[4] > 50) { // discard tiny and huge blobs
+					startx = boundsRect[0]+(boundsRect[1]-boundsRect[0])/2; //midpoint x
+					endx = boundsRect[1]; // right
+					starty = boundsRect[2]; // top
+					endy = boundsRect[2]+(boundsRect[3]-boundsRect[2])/2; // midpoint y
+					cornerRatio = getPixelEqTrueCount(blobs[blobnum],startx,endx,starty,endy) /
+						 ((boundsRect[1]-boundsRect[0])*(boundsRect[3]-boundsRect[2])/4);
+					blobRatio = (boundsRect[1]-boundsRect[0])/(boundsRect[3]-boundsRect[2]);
+					nonCornerRatio = boundsRect[4]/((boundsRect[1]-boundsRect[0])*(boundsRect[3]-boundsRect[2])*.75);
+					//diff=Math.abs(cornerRatio - lastCornerRatio)/lastCornerRatio + Math.abs(nonCornerRatio - lastNonCornerRatio)/lastNonCornerRatio 
+					//	+ Math.abs(blobRatio - lastBlobRatio)/lastBlobRatio;
+					diff = Math.abs(nonCornerRatio - lastNonCornerRatio)*4+Math.abs(cornerRatio - lastCornerRatio);
+					 // ABOVE WORKING GOOD -- could add multiplier based on aspect ratio, to make it comp better for angles (but that favours others too?)
+					//diff = diff * (blobRatio/lastBlobRatio); // blobRatio should be <= last, if calibrated face on
+					if (diff < maxdiff) {
+						winner=blobnum;
+						winnerPixelCount = boundsRect[4];
+						maxdiff = diff;
+						winRect = boundsRect.slice();
+						winnerCornerRatio = cornerRatio;
+						winnerNonCornerRatio = nonCornerRatio;
+						winnerBlobRatio = blobRatio;
+					}
+				} //size condition end bracket
+
+				blobnum++;
+			}
+			
+			if (winner != -1) {
+				//Lower 3rd, left
+				starty = winRect[3] - (winRect[3]-winRect[2])*0.333;;
+	 			startx = winRect[0];
+	 			endx = winRect[0]+ (winRect[1]-winRect[0])/2;
+	 			endy = winRect[3]
+				var lowerLeftPixls:int = getPixelEqTrueCount(blobs[winner],startx,endx,starty,endy)
+				//Lower 3rd, right
+	 			startx = winRect[0]+ (winRect[1]-winRect[0])/2 +1;
+	 			endx = winRect[1];
+				var lowerRightPixls:int = getPixelEqTrueCount(blobs[winner],startx,endx,starty,endy)
+				
+				trace("winner=> topRight:"+winnerCornerRatio+", rest:"+ winnerNonCornerRatio+", blob:"+winnerBlobRatio+", numblobs:"+(blobnum-1)+", diff:"+maxdiff);
+				lastblob=blobs[winner].slice(); // only for development (to display bitmap), remove if unnceccessary
+				result = [winRect[0],winRect[2],winRect[1]-winRect[0]+1,winRect[3]-winRect[2]+1,
+					lowerLeftPixls,lowerRightPixls]; //x,y,width,height,pixels- left, pixels-right
+			}
+			return result;
+		}
+		
+		private function getRect(blob:Array, start:int):Array {
+			var y:int = start/width;
+			var x:int = start - (y*width); 	
+			var minx:int = x;
+			var miny:int = y;
+			var maxx:int = x;
+			var maxy:int = y;
+			var p:int;
+			var tempy:int 
+			var tempx:int
+			var size:int = 0;
+			for (p=0; p<width*height; p++) {
+				if (blob[p]) {
+					tempy = p/width;
+					tempx = p - (tempy*width); 
+					if (tempx < minx) { minx = tempx; }
+					if (tempx > maxx) { maxx = tempx; }
+					if (tempy < miny) { miny = tempy; }
+					if (tempy > maxy) { maxy = tempy; }
+					size++;
+				}
+			}
+			var result:Array=[minx,maxx,miny,maxy,size];
+			return result;
+		}
+		
+		private function getPixelEqTrueCount(blob:Array,startx:int,endx:int,starty:int,endy:int):int {
+			var result:int = 0;
+			for (var yy:int = starty; yy<endy; yy++) {
+				for (var xx:int = startx; xx<=endx; xx++) {
+					if (blob[yy*width + xx]) {
+						result++;
+					}
+				}
+			}
+			return result;
+		}
+		
+		private function blobResult(blob:Array, start:int):Array {
+			var r:Array = getRect(blob,start);
+			var minx:int = r[0];
+			var maxx:int = r[1];
+			var miny:int = r[2];
+			var maxy:int = r[3];  
+			lastblobSize = r[4];
+			
+			var ratio:Number = 0.333;
+			var ystart:int = maxy - (maxy-miny)*ratio;
+			var xmid:int = minx + (maxx-minx)/2; //odd # width could yeild incorrectly lesser left counts
+			var lowerLeftPixls:int = getPixelEqTrueCount(blob,minx,xmid,ystart,maxy);
+			var lowerRightPixls:int = getPixelEqTrueCount(blob,xmid+1,maxx,ystart,maxy);
+			
+			//upper Right pixel ratio
+			var startx:int = minx+(maxx-minx)/2; //midpoint x
+			var endx:int = maxx; // right
+			var starty:int = miny; // top
+			var endy:int = miny+(maxy-miny)/2; // midpoint y
+			var cornerPixels:int = getPixelEqTrueCount(blob,startx,endx,starty,endy);
+			lastCornerRatio = cornerPixels / ((maxx-minx)*(maxy-miny)/4);
+			lastBlobRatio = (maxx-minx)/(maxy-miny);
+			lastNonCornerRatio = lastblobSize/((maxx-minx)*(maxy-miny)*.75);
+			trace("start=> topRight:"+lastCornerRatio+", rest:"+ lastNonCornerRatio)+", blob:"+lastBlobRatio;
+			var result:Array = [minx,miny,maxx-minx+1,maxy-miny+1,lowerLeftPixls,lowerRightPixls]; //x,y,width,height,pixels- left, pixels-right
+			return result; 
+		}		
+	}
+}
