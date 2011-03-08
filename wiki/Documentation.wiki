@@ -1,0 +1,16 @@
+*Creating new eclipse project from svn:*
+  * download oculus win32 archive, unpack
+  * make backup copies of Oculus/webapps/oculus/flash & images folders
+  * delete Oculus/webapps/oculus folder and contents
+  * open eclipse with subclipse plugin
+  * set working directory to Oculus/webapps
+  * set svn repository to https://oculus.googlecode.com/svn/trunk/
+  * checkout /trunk/oculus as new project 'oculus'
+  * under project properties > java build path:
+    * remove src folder created by default
+    * add WEB-INF/src and WEB-INF/classes as src folders
+    * change default output folder to oculus/WEB-INF/classes
+    * add Jars > select all under /oculus/WEB-INF/lib > add
+    * add External Jars:  red5.jar, slf4j-api-1.5.10.jar, spring-core-3.0.0.jar -- latter 2 found in Oculus/lib, red5.jar in Oculus/ (but red5.jar may have to be a copy so no conflits with red5 operation)
+  * copy flash and images folders to Oculus/
+  * make sure Oculus/webapps/.metadata folder is hidden or red5 will try to run it
