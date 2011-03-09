@@ -1,0 +1,79 @@
+distributors, stores:
+http://logicsupply.com << mini pc components
+http://www.robotshop.ca (servos, control boards, everything)
+http://www.pololu.com/
+http://www.lynxmotion.com
+http://www.hitecrcd.com/
+http://www.leeselectronic.com (Vancouver!)
+http://arduino.cc
+http://www.adafruit.com/
+ncix.com
+http://www.laptopking.com/ (laptop parts)
+http://www.mini-box.com/  dc-dc converters, more
+http://www.sparkfun.com embedded stuff, electronics, robot parts
+https://sdp-si.com
+http://www.soc-machines.com (microcontrollers, cameras, etc. -- north van!)
+http://www.robotmarketplace.com
+www.tycoelectronics.com
+http://www.hobbycity.com
+http://www.solarbotics.com/ (CDN comopany)
+Mini ITX systems canada, check this one: http://www.itxcanada.com/index.php?p=product&id=792&parent=126
+open source Heer proto components: www.buglabs.net/
+mega components: digikey.com , mouser.com
+Mini single board comps http://www.fit-pc.com/web/
+good ebay electronics: http://stores.ebay.com/yeungs2008
+DIGikey/mouser usuals: http://www.ladyada.net/wiki/partfinder
+
+Reference/e-zines:
+http://www.servomagazine.com/
+http://www.botjunkie.com/  http://botmag.com
+http://www.robotreviews.com/ http://www.robotadvice.com/
+
+APIs/SDKs/IDEs/Tools
+http://msdn.microsoft.com/robotics
+android-arduino http://www.amarino-toolkit.net/index.html
+Check out ViPR vision system from Evolution Robotics
+V W A converter http://www.supercircuits.com/resources/tools/Volts-Watts-Amps-Converter
+voltage drop calculator (for wire guage) http://www.supercircuits.com/resources/tools/voltageDrop
+field of view calculator http://www.supercircuits.com/resources/tools/lens-calculator
+scroll down for links to more apis: http://www.trossenrobotics.com/surveyor-srv-1-kit.aspx
+robot vision: http://www.robotsee.com/
+robot 3d virtual environment http://openrave.programmingvision.com/index.php/Main_Page
+
+oems:
+http://www.morex.com.tw dc-dc kits, some other stuff
+http://www.cell-con.com li-ion battery chargers
+
+custom suppliers:
+www.myropcb.com (china, maybe turnkey, North America office)
+PCBCArt.com (China)
+www.l-com.com (US/China)
+http://batchpcb.com/ (pcb protos)
+
+OSes:
+https://wiki.ubuntu.com/UNR
+http://www.ros.org
+
+Similar examples/projects:
+http://slashdot.org/palm/21/10/03/03/2048229_1.shtml
+android cellbots http://www.cellbots.com/about/
+broadcast video from cellphones http://www.movino.org/
+http://midbot.com  -- netbook robot, hong kong
+http://www.chinavasion.com/product_info.php/pName/intelligent-robot-vacuum-cleaner-with-wireless-ip-camera/
+Japanese: translate.google.com/translate?js=y&prev=_t&hl=en&ie=UTF-8&layout=1&eotf=1&u=http%3A%2F%2Fwww.softbankmobile.co.jp%2Fja%2Fnews%2Fpress%2F2010%2F20100518_03%2Findex.html&sl=auto&tl=en
+http://thecorpora.com/blog/?p=110
+http://news.cnet.com/8301-27076_3-10301349-248.html?tag=mncol;txt
+http://www.engadget.com/2008/12/01/arduino-armed-acer-aspire-one-and-wheels-tools-around-shoots-vi/
+http://www.wired.com/gadgetlab/2010/05/anybots-robot-telepresence/
+http://www.willowgarage.com/pages/robots/texai/overview
+surveyor srv1 http://code.google.com/p/srv1console/
+rovio tech info: http://www.robocommunity.com/forum/thread/14445/Rovio-background-hardware-and-software/
+rovio, cool mod using skype for all communications? http://robodance.com/
+http://ardrone.parrot.com/parrot-ar-drone/dev/developers
+netbook telepresence $500 w/ irobot create: http://procrastineering.blogspot.com/2011/02/low-cost-video-chat-robot.html
+Irobot create + kinect: http://www.bilibot.com/
+
+General links:
+Time log: http://spreadsheets.google.com/ccc?key=0Am5qW0mwe1KzdFkwb2dWY3JkNVhORVdmZGZ0TTVnNWc&hl=en&pli=1#gid=0f
+bunch of good links in this thread: http://www.engadget.com/2010/07/29/ask-engadget-best-robot-platform-for-under-400/
+netbooks plugs info: https://spreadsheets.google.com/ccc?key=0Am5qW0mwe1KzdHA2c2pUT2FqLWIwYnVzQkJaRDRubnc&hl=en#gid=0
