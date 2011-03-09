@@ -1,4 +1,4 @@
-distributors, stores:
+distributors, stores:<br>
 http://logicsupply.com << mini pc components
 http://www.robotshop.ca (servos, control boards, everything)
 http://www.pololu.com/
