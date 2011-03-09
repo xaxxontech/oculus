@@ -12,15 +12,15 @@ http://www.laptopking.com/ (laptop parts)<br>
 http://www.mini-box.com/  dc-dc converters, more<br>
 http://www.sparkfun.com embedded stuff, electronics, robot parts
 https://sdp-si.com<br>
-http://www.soc-machines.com (microcontrollers, cameras, etc. -- north van!)<br>
+http://www.soc-machines.com microcontrollers, cameras<br>
 http://www.robotmarketplace.com<br>
 http://www.tycoelectronics.com<br>
 http://www.hobbycity.com<br>
 http://www.solarbotics.com/ (CDN comopany)<br>
-Mini ITX systems canada, check this one: http://www.itxcanada.com/index.php?p=product&id=792&parent=126<br>
+Mini ITX systems canada: http://www.itxcanada.com/index.php?p=product&id=792&parent=126<br>
 open source Heer proto components: www.buglabs.net/<br>
 mega components: http://digikey.com , http://mouser.com<br>
-Mini single board comps http://www.fit-pc.com/web/<br>
+Mini single board systems http://www.fit-pc.com/web/<br>
 good ebay electronics: http://stores.ebay.com/yeungs2008<br>
 DIGikey/mouser usuals: http://www.ladyada.net/wiki/partfinder<br>
 <br>
@@ -32,7 +32,7 @@ http://www.robotreviews.com/ http://www.robotadvice.com/<br>
 *APIs/SDKs/IDEs/Tools*<br>
 http://msdn.microsoft.com/robotics<br>
 android-arduino http://www.amarino-toolkit.net/index.html<br>
-Check out ViPR vision system from Evolution Robotics<br>
+ViPR vision system from Evolution Robotics<br>
 V W A converter http://www.supercircuits.com/resources/tools/Volts-Watts-Amps-Converter<br>
 voltage drop calculator (for wire guage) http://www.supercircuits.com/resources/tools/voltageDrop<br>
 field of view calculator http://www.supercircuits.com/resources/tools/lens-calculator<br>
@@ -45,7 +45,7 @@ http://www.morex.com.tw dc-dc kits, some other stuff<br>
 http://www.cell-con.com li-ion battery chargers<br>
 <br>
 *custom suppliers*:<br>
-www.myropcb.com (china, maybe turnkey, North America office)<br>
+www.myropcb.com (china, turnkey, Ottawa office)<br>
 PCBCArt.com (China)<br>
 www.l-com.com (US/China)<br>
 http://batchpcb.com/ (pcb protos)<br>
