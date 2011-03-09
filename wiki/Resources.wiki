@@ -1,4 +1,4 @@
-distributors, stores:<br>
+*distributors, stores*:<br>
 http://logicsupply.com << mini pc components<br>
 http://www.robotshop.ca (servos, control boards, everything)<br>
 http://www.pololu.com/<br>
@@ -14,7 +14,7 @@ http://www.sparkfun.com embedded stuff, electronics, robot parts
 https://sdp-si.com<br>
 http://www.soc-machines.com (microcontrollers, cameras, etc. -- north van!)<br>
 http://www.robotmarketplace.com<br>
-www.tycoelectronics.com<br>
+http://www.tycoelectronics.com<br>
 http://www.hobbycity.com<br>
 http://www.solarbotics.com/ (CDN comopany)<br>
 Mini ITX systems canada, check this one: http://www.itxcanada.com/index.php?p=product&id=792&parent=126<br>
