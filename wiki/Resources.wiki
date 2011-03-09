@@ -1,14 +1,14 @@
 distributors, stores:<br>
-http://logicsupply.com << mini pc components
-http://www.robotshop.ca (servos, control boards, everything)
-http://www.pololu.com/
-http://www.lynxmotion.com
-http://www.hitecrcd.com/
-http://www.leeselectronic.com (Vancouver!)
-http://arduino.cc
-http://www.adafruit.com/
-ncix.com
-http://www.laptopking.com/ (laptop parts)
+http://logicsupply.com << mini pc components<br>
+http://www.robotshop.ca (servos, control boards, everything)<br>
+http://www.pololu.com/<br>
+http://www.lynxmotion.com<br>
+http://www.hitecrcd.com/<br>
+http://www.leeselectronic.com (Vancouver!)<br>
+http://arduino.cc<br>
+http://www.adafruit.com/<br>
+ncix.com<br>
+http://www.laptopking.com/ (laptop parts)<br>
 http://www.mini-box.com/  dc-dc converters, more
 http://www.sparkfun.com embedded stuff, electronics, robot parts
 https://sdp-si.com
