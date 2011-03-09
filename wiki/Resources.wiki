@@ -1,7 +1,7 @@
 *APIs/SDKs/IDEs/Tools*<br>
 http://msdn.microsoft.com/robotics<br>
 android-arduino http://www.amarino-toolkit.net/index.html<br>
-ViPR vision system from Evolution Robotics<br>
+ViPR vision system from Evolution Robotics http://www.evolution.com/core/ViPR/<br>
 scroll down for links to more apis: http://www.trossenrobotics.com/surveyor-srv-1-kit.aspx<br>
 robot vision: http://www.robotsee.com/<br>
 robot 3d virtual environment http://openrave.programmingvision.com/index.php/Main_Page<br>
