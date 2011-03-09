@@ -24,7 +24,7 @@ Mini single board comps http://www.fit-pc.com/web/<br>
 good ebay electronics: http://stores.ebay.com/yeungs2008<br>
 DIGikey/mouser usuals: http://www.ladyada.net/wiki/partfinder<br>
 <br>
-8Reference/e-zines:*<br>
+*Reference/e-zines:*<br>
 http://www.servomagazine.com/<br>
 http://www.botjunkie.com/  http://botmag.com<br>
 http://www.robotreviews.com/ http://www.robotadvice.com/<br>
