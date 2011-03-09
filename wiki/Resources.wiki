@@ -4,7 +4,7 @@ http://www.robotshop.ca (servos, control boards, everything)<br>
 http://www.pololu.com/<br>
 http://www.lynxmotion.com<br>
 http://www.hitecrcd.com/<br>
-http://www.leeselectronic.com (Vancouver!)<br>
+http://www.leeselectronic.com (Vancouver)<br>
 http://arduino.cc<br>
 http://www.adafruit.com/<br>
 http://ncix.com<br>
@@ -40,14 +40,14 @@ scroll down for links to more apis: http://www.trossenrobotics.com/surveyor-srv-
 robot vision: http://www.robotsee.com/<br>
 robot 3d virtual environment http://openrave.programmingvision.com/index.php/Main_Page<br>
 <br>
-oems:<br>
+*oems*:<br>
 http://www.morex.com.tw dc-dc kits, some other stuff<br>
 http://www.cell-con.com li-ion battery chargers<br>
 <br>
 *custom suppliers*:<br>
-www.myropcb.com (china, turnkey, Ottawa office)<br>
-PCBCArt.com (China)<br>
-www.l-com.com (US/China)<br>
+http://www.myropcb.com (china, turnkey, Ottawa office)<br>
+http://PCBCArt.com (China)<br>
+http://www.l-com.com (US/China)<br>
 http://batchpcb.com/ (pcb protos)<br>
 <br>
 *OSes*:<br>
@@ -60,7 +60,7 @@ android cellbots http://www.cellbots.com/about/<br>
 broadcast video from cellphones http://www.movino.org/<br>
 http://midbot.com  -- netbook robot, hong kong<br>
 http://www.chinavasion.com/product_info.php/pName/intelligent-robot-vacuum-cleaner-with-wireless-ip-camera/<br>
-Japanese: translate.google.com/translate?js=y&prev=_t&hl=en&ie=UTF-8&layout=1&eotf=1&u=http%3A%2F%2Fwww.softbankmobile.co.jp%2Fja%2Fnews%2Fpress%2F2010%2F20100518_03%2Findex.html&sl=auto&tl=en<br>
+Japanese: http://translate.google.com/translate?js=y&prev=_t&hl=en&ie=UTF-8&layout=1&eotf=1&u=http%3A%2F%2Fwww.softbankmobile.co.jp%2Fja%2Fnews%2Fpress%2F2010%2F20100518_03%2Findex.html&sl=auto&tl=en<br>
 http://thecorpora.com/blog/?p=110<br>
 http://news.cnet.com/8301-27076_3-10301349-248.html?tag=mncol;txt<br>
 http://www.engadget.com/2008/12/01/arduino-armed-acer-aspire-one-and-wheels-tools-around-shoots-vi/<br>
