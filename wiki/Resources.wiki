@@ -1,78 +1,12 @@
-*distributors, stores*:<br>
-http://logicsupply.com << mini pc components<br>
-http://www.robotshop.ca (servos, control boards, everything)<br>
-http://www.pololu.com/<br>
-http://www.lynxmotion.com<br>
-http://www.hitecrcd.com/<br>
-http://www.leeselectronic.com (Vancouver)<br>
-http://arduino.cc<br>
-http://www.adafruit.com/<br>
-http://ncix.com<br>
-http://www.laptopking.com/ (laptop parts)<br>
-http://www.mini-box.com/  dc-dc converters, more<br>
-http://www.sparkfun.com embedded stuff, electronics, robot parts
-https://sdp-si.com<br>
-http://www.soc-machines.com microcontrollers, cameras<br>
-http://www.robotmarketplace.com<br>
-http://www.tycoelectronics.com<br>
-http://www.hobbycity.com<br>
-http://www.solarbotics.com/ (CDN comopany)<br>
-Mini ITX systems canada: http://www.itxcanada.com/index.php?p=product&id=792&parent=126<br>
-open source Heer proto components: www.buglabs.net/<br>
-mega components: http://digikey.com , http://mouser.com<br>
-Mini single board systems http://www.fit-pc.com/web/<br>
-good ebay electronics: http://stores.ebay.com/yeungs2008<br>
-DIGikey/mouser usuals: http://www.ladyada.net/wiki/partfinder<br>
-<br>
-*Reference/e-zines:*<br>
-http://www.servomagazine.com/<br>
-http://www.botjunkie.com/  http://botmag.com<br>
-http://www.robotreviews.com/ http://www.robotadvice.com/<br>
-<br>
 *APIs/SDKs/IDEs/Tools*<br>
 http://msdn.microsoft.com/robotics<br>
 android-arduino http://www.amarino-toolkit.net/index.html<br>
 ViPR vision system from Evolution Robotics<br>
-V W A converter http://www.supercircuits.com/resources/tools/Volts-Watts-Amps-Converter<br>
-voltage drop calculator (for wire guage) http://www.supercircuits.com/resources/tools/voltageDrop<br>
-field of view calculator http://www.supercircuits.com/resources/tools/lens-calculator<br>
 scroll down for links to more apis: http://www.trossenrobotics.com/surveyor-srv-1-kit.aspx<br>
 robot vision: http://www.robotsee.com/<br>
 robot 3d virtual environment http://openrave.programmingvision.com/index.php/Main_Page<br>
-<br>
-*oems*:<br>
-http://www.morex.com.tw dc-dc kits, some other stuff<br>
-http://www.cell-con.com li-ion battery chargers<br>
-<br>
-*custom suppliers*:<br>
-http://www.myropcb.com (china, turnkey, Ottawa office)<br>
-http://PCBCArt.com (China)<br>
-http://www.l-com.com (US/China)<br>
-http://batchpcb.com/ (pcb protos)<br>
 <br>
 *OSes*:<br>
 https://wiki.ubuntu.com/UNR<br>
 http://www.ros.org<br>
 <br>
-*Similar examples/projects*:<br>
-http://slashdot.org/palm/21/10/03/03/2048229_1.shtml<br>
-android cellbots http://www.cellbots.com/about/<br>
-broadcast video from cellphones http://www.movino.org/<br>
-http://midbot.com  -- netbook robot, hong kong<br>
-http://www.chinavasion.com/product_info.php/pName/intelligent-robot-vacuum-cleaner-with-wireless-ip-camera/<br>
-Japanese: http://translate.google.com/translate?js=y&prev=_t&hl=en&ie=UTF-8&layout=1&eotf=1&u=http%3A%2F%2Fwww.softbankmobile.co.jp%2Fja%2Fnews%2Fpress%2F2010%2F20100518_03%2Findex.html&sl=auto&tl=en<br>
-http://thecorpora.com/blog/?p=110<br>
-http://news.cnet.com/8301-27076_3-10301349-248.html?tag=mncol;txt<br>
-http://www.engadget.com/2008/12/01/arduino-armed-acer-aspire-one-and-wheels-tools-around-shoots-vi/<br>
-http://www.wired.com/gadgetlab/2010/05/anybots-robot-telepresence/<br>
-http://www.willowgarage.com/pages/robots/texai/overview<br>
-surveyor srv1 http://code.google.com/p/srv1console/<br>
-rovio tech info: http://www.robocommunity.com/forum/thread/14445/Rovio-background-hardware-and-software/<br>
-rovio, cool mod using skype for all communications http://robodance.com/
-http://ardrone.parrot.com/parrot-ar-drone/dev/developers<br>
-netbook telepresence $500 w/ irobot create: http://procrastineering.blogspot.com/2011/02/low-cost-video-chat-robot.html<br>
-Irobot create + kinect: http://www.bilibot.com/<br>
-<br>
-*General links:*<br>
-http://www.engadget.com/2010/07/29/ask-engadget-best-robot-platform-for-under-400/<br>
-netbooks plugs info: https://spreadsheets.google.com/ccc?key=0Am5qW0mwe1KzdHA2c2pUT2FqLWIwYnVzQkJaRDRubnc&hl=en#gid=0<br>
