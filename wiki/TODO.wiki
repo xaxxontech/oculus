@@ -1,7 +1,7 @@
 #labels Phase-Design
 *New Ideas for interface:*
-Behaviors  modes (see Rod Brooks)
-Support automosos.
+* Behaviors  modes (see Rod Brooks)
+* Support automosos.
 Scripting of move commands (test patterns).
 Wii control.
 Mapping  (find home).
