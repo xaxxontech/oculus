@@ -1,16 +1,14 @@
 #labels Phase-Design
 #Features to add in new versions.
 
-= New Ideas for interface =
-
+*New Ideas for interface:*
 * Behaviors  modes (see Rod Brooks)
 * Support automosos 
 * Scripting of move commands (test patterns)
 * Wii control
 * Mapping  (find home)
 
-= New Firmware Ideas =
-
+*New Firmware Ideas:*
 * Add-on Head Lights kits 
 * External relays (for lights, or manipulator)  
 * Sonar Range finder on servo for collision avoidance
