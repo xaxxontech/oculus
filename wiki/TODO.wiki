@@ -1,15 +1,11 @@
 #labels Phase-Design
-#Features to add in new versions.
-
 *New Ideas for interface:*
 * Behaviors  modes (see Rod Brooks)
-* Support automosos 
-* Scripting of move commands (test patterns)
-* Wii control
-* Mapping  (find home)
-
-*New Firmware Ideas:*
-* Add-on Head Lights kits 
-* External relays (for lights, or manipulator)  
-* Sonar Range finder on servo for collision avoidance
-* use digital io line for the PWM, and A2D line for range finder 
+* Support automosos.
+* Scripting of move commands (test patterns).
+* Wii control.
+* Mapping  (find home).
+* Add-on Head Lights kits.
+* External relays (for lights, or manipulator).
+* Sonar Range finder on servo for collision avoidance.
+* use digital io line for the PWM, and A2D line for range finder. 
