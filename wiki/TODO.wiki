@@ -3,11 +3,15 @@
 
 = New Ideas for interface =
 
-Scripting of move commands
-Wii control
-
+*Behaviors  modes (see Rod Brooks)
+#Support automosos 
+*Scripting of move commands (test patterns)
+*Wii control
+*Mapping  (find home)
 
 = New Firmware Ideas =
 
-Add-on Head Lights kits 
-External relays (for lights, or manipulator)  
+*Add-on Head Lights kits 
+#External relays (for lights, or manipulator)  
+*Sonar Range finder on servo for collision avoidance
+#use digital io line for the PWM, and A2D line for range finder 
