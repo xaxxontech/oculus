@@ -1,0 +1,13 @@
+#labels Phase-Design
+#Features to add in new versions.
+
+= New Ideas for interface =
+
+Scripting of move commands
+Wii control
+
+
+= New Firmware Ideas =
+
+Add-on Head Lights kits 
+External relays (for lights, or manipulator)  
