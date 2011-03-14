@@ -12,5 +12,5 @@
     * change default output folder to oculus/WEB-INF/classes
     * add Jars > select all under /oculus/WEB-INF/lib > add
     * add External Jars:  red5.jar, slf4j-api-1.5.10.jar, spring-core-3.0.0.jar -- latter 2 found in Oculus/lib, red5.jar in Oculus/ (but red5.jar may have to be a copy so no conflits with red5 operation)
-  # copy flash and images folders (from backup created in step 2) to Oculus/
+  # copy flash and images folders and their contents (from backup created in step 2) to Oculus/
   # make sure Oculus/webapps/.metadata folder is hidden or red5 will try to run it
