@@ -1,10 +1,12 @@
+#labels Phase-Implementation
 *Creating new eclipse project from svn:*
   # download oculus win32 archive, unpack
   # make backup copies of Oculus/webapps/oculus/flash & images folders and their contents, you'll need to recopy them back later
   # delete Oculus/webapps/oculus folder and contents
   # open eclipse with subclipse plugin
   # set working directory to Oculus/webapps
-  # set svn repository to https://oculus.googlecode.com/svn/trunk/
+  # set svn repository to https://oculus.googlecode.com/svn/trunk/ 
+    * select the 'oculus' branch ('flex' can be imported into xxxbuilder)
   # checkout /trunk/oculus as new project 'oculus'
   # under project properties > java build path:
     * remove src folder created by default
