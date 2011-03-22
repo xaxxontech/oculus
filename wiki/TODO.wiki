@@ -1,5 +1,6 @@
 #labels Phase-Design
 *New Ideas for interface:*
+ * Voice Recognition [http://java.sun.com/products/java-media/speech/forDevelopers/jsapi-guide/Recognition.html java API available]
  * Behaviors  modes (see Rod Brooks)
  * Support automosos.
  * Scripting of move commands (test patterns).
