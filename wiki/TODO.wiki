@@ -2,7 +2,7 @@
 *New Ideas for interface:*
  * version control in GUI and auto update 
  * Voice Recognition [http://java.sun.com/products/java-media/speech/forDevelopers/jsapi-guide/Recognition.html java API available]
- * [Behaviors http://en.wikipedia.org/wiki/Subsumption_architecture] modes 
+ * [http://en.wikipedia.org/wiki/Subsumption_architecture Subsumption_architecture] 
    *(see [Rod Brooks http://people.csail.mit.edu/brooks/]
  * Support automosos.
  * Scripting of move commands (test patterns).
