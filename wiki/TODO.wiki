@@ -13,3 +13,4 @@
  * External relays (for lights, or manipulator).
  * Sonar Range finder on servo for collision avoidance.
  * Use digital io line for the PWM, and A2D line for range finder. 
+ * Surveillance mode macro--triggers on loud sound detection => undock => turn around => rotate sweep+pause look for video motion detected => email/SMS alert (& maybe screenshot) => re-dock 
