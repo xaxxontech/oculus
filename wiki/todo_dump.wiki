@@ -86,10 +86,13 @@ Todo: (>=5 after demo units)
 6-overlay doesn't work in IE6
 
 8-call serial port disconnect on 'quit'--?
+ * Maybe use the java shutdown hook (if not seeing serial data coming in?)
+
 
 5-auto-stop after 2? minutes if no movement commands received
 
 5-firmware, if (partial)? reset, stop motion (anti-stalling) -- 3rd post on this page http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1281729580 AND/OR add software arduino reset command (but that won't work because its not responding to commands...)
+ * also should solve in firmware and serialPort (if not getting data in, basic counter, then disconnect from port and connect again to cause a reset)
 
 6-firmware auto update 
 
