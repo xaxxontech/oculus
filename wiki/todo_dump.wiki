@@ -1,4 +1,5 @@
 #summary CA working todo list--needs merge
+#labels Deprecated
 
 Todo: (>=5 after demo units)
 
