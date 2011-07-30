@@ -6,10 +6,10 @@
    *(see [http://people.csail.mit.edu/brooks/ Rod Brooks] [http://video.google.com/videoplay?docid=-5563890805802735704# video here]
  * Scripting of move commands (test patterns).  *(done)*
  * Wii control
- * Mapping  (find home)
+ * Mapping  (find home being tested with sonar assisted docking) 
  * Add-on Head Lights kits. *(testing)*
  * External relays (for lights, or manipulator).
- * Sonar Range finder on servo for collision avoidance.
+ * Sonar Range finder on servo for collision avoidance. *(testing)*
  * Use digital io line for the PWM, and A2D line for range finder. *(done)*
  * Surveillance mode macro--triggers on loud sound detection => undock => turn around => rotate sweep+pause look for video motion detected => email/SMS alert (& maybe screenshot) => re-dock 
  * capture video to file?
