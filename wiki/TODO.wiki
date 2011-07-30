@@ -1,16 +1,15 @@
 #labels Phase-Design
 *New Ideas for future versions*
- * email updates on low battery, motion detected *(started)*
- * version control in GUI and auto update 
+ * email updates on low battery, motion detected *(done)*
  * Voice Recognition [http://java.sun.com/products/java-media/speech/forDevelopers/jsapi-guide/Recognition.html java API available]
  * [http://en.wikipedia.org/wiki/Subsumption_architecture Subsumption_architecture] 
    *(see [http://people.csail.mit.edu/brooks/ Rod Brooks] [http://video.google.com/videoplay?docid=-5563890805802735704# video here]
- * Support automosos.
- * Scripting of move commands (test patterns).
- * Wii control.
- * Mapping  (find home).
- * Add-on Head Lights kits.
+ * Scripting of move commands (test patterns).  *(done)*
+ * Wii control
+ * Mapping  (find home)
+ * Add-on Head Lights kits. *(testing)*
  * External relays (for lights, or manipulator).
  * Sonar Range finder on servo for collision avoidance.
- * Use digital io line for the PWM, and A2D line for range finder. 
+ * Use digital io line for the PWM, and A2D line for range finder. *(done)*
  * Surveillance mode macro--triggers on loud sound detection => undock => turn around => rotate sweep+pause look for video motion detected => email/SMS alert (& maybe screenshot) => re-dock 
+ * capture video to file?
