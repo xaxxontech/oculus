@@ -13,3 +13,15 @@ As a developer you have two options. Extend the source code from SVN, or hook in
 || _*state*_ || dump current variables in the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/oculus/State.java State] object ||
 || _*tcp*_ || returns the number of active TCP Connections ||
 || _*users*_ || returns the number of active web users ||
+
+= Find Dock Results =
+
+After a variable amount of time (about 1-3 seconds) the following strings are written to the TCP client.
+
+||dockdensity : 0.025641|| tba ||
+||dockxpos : 117|| is the number of pixels from the right (users POV) edge  ||
+||dockypos : 134|| is the number of pixels from the top ||
+||dockxsize : 79|| is the number of pixels the dock is wide ||
+||dockysize : 66|| is the number of pixels the dock is high ||
+
+These values can be used to compute move commands for docking.
