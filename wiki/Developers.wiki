@@ -16,7 +16,7 @@ As a developer you have two options. Extend the source code from SVN, or hook in
 
 = Find Dock Results =
 
-After a variable amount of time (about 1-3 seconds) the following strings are written to the TCP client.
+After a variable amount of time (about 1-3 seconds) the following strings are written to the TCP client. you just need to parse the variable name, the colon, and then the value. Each name value pair is terminated with a newline, so you just need to read full lines from whatever code environment you like.
 
 ||dockdensity : 0.025641|| tba ||
 ||dockxpos : 117|| is the number of pixels from the right (users POV) edge  ||
@@ -36,4 +36,8 @@ Or on osx/linux do this instead:
 
 The parameters are, robot's local ip, port number, user name, hashed password.
 
-This is available in plain text over TCP, but you client must first send user name and password first. As an example of how the TCP connections are sent updates, see below. We can chat with the logged in users and any TCP connections as well.  
+This is available in plain text over TCP, but you client must first send user name and password first. As an example of how the TCP connections are sent updates, see below. We can chat with the logged in users and any TCP connections as well. All tcp commands will be seen in the web user's screens as chat text for now, so you''ll see the requests the clients are making. 
+
+
+
+
