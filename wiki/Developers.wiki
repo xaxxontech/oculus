@@ -13,31 +13,21 @@ To enable this feature, you must set {{{developer true}}} in your conf/oculus_se
 || _*state*_ || dump current variables in the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/oculus/State.java State] object ||
 || _*tcp*_ || returns the number of active TCP Connections ||
 || _*users*_ || returns the number of active web users ||
+|| _*factory*_ || restore factory settings ||
 
-= Find Dock Results =
-
-After a variable amount of time (about 1-3 seconds) the following strings are written to the TCP client. you just need to parse the variable name, the colon, and then the value. Each name value pair is terminated with a newline, so you just need to read full lines from whatever code environment you like.
-
-||dockdensity : 0.025641|| tba ||
-||dockxpos : 117|| is the number of pixels from the right (users POV) edge  ||
-||dockypos : 134|| is the number of pixels from the top ||
-||dockxsize : 79|| is the number of pixels the dock is wide ||
-||dockysize : 66|| is the number of pixels the dock is high ||
-
-These values can be used to compute move commands for docking.
-
+These values c
 An example SWING client is avalable in [http://code.google.com/p/zephyropen/source/browse/#svn%2Fzephyropen%2Fsrc%2Fzephyropen%2Fsocket%2Fmulticast%2Fgui SVN], or as a [http://verticalchallenge.org/oculus/oculus.jar JAR ready to use.]
 
 Running the jar, build a simple bat file like:
 
 {{{
-start javaw -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8ibFy34L63A8=  
+start javaw -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8kbFy34L63A8=  
 }}}
 
 Or on osx/linux do this instead: 
 
 {{{
-java -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8ibFy34L63A8= &
+java -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8ibFky34L63A8= &
 }}}
 
 The parameters are, robot's local ip, port number, user name, hashed password. (find these in oculus/conf/oculus_settings.txt)
