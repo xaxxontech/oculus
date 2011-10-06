@@ -29,7 +29,7 @@ These values can be used to compute move commands for docking.
 An example client is avalable here in [http://code.google.com/p/zephyropen/source/browse/#svn%2Fzephyropen%2Fsrc%2Fzephyropen%2Fsocket%2Fmulticast%2Fgui SVN], or as a [http://verticalchallenge.org/oculus/oculus.jar JAR ready to use.]
 
 Running the jar, build a simple bat file like:
-[code>start javaw -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8ibFy34L63A8=  [/code]
+[code]start javaw -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8ibFy34L63A8=  [/code]
 
 Or on osx/linux do this instead: 
 [code]java -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8ibFy34L63A8= & [/code]
