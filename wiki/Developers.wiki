@@ -1,7 +1,9 @@
 #labels Phase-Implementation
 ==How to setup oculus for development==
 
-As a developer you have two options. Extend the source code from SVN, or hook into the command server. The benefit of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java command server] is that you can get updates without having to merge your code. Also, because it is just a simple socket connection, you can use any language you prefer. So, C, ruby, python etc is all going to be supported this way. The last benefit is that you can connect to robot without logging into the web based control screens. Basic 'zombie' mode requires no Currently only a few commands are available, but will be extended as there is need. 
+As a developer you have two options. Extend the source code from SVN, or hook into the command server. The benefit of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java command server] is that you can get updates without having to merge your code. Also, because it is just a simple socket connection, you can use any language you prefer. So, C, ruby, python etc is all going to be supported this way. The last benefit is that you can connect to robot without logging into the web based control screens. Basic 'zombie mode' requires a valid user name and password, but you are not going to show up as a full fledged user in the web app controls. 
+
+commands are available, but will be extended as there is need. 
 
 To enable this feature, you must set: 
 
@@ -20,6 +22,7 @@ in your conf/oculus_settings.txt file.
 || _*tcp*_ || returns the number of active TCP Connections ||
 || _*users*_ || returns the number of active web users ||
 || _*factory*_ || restore factory settings ||
+|| _*reboot*_ || restarts the oculus web application ||
 
 These values c
 An example SWING client is avalable in [http://code.google.com/p/zephyropen/source/browse/#svn%2Fzephyropen%2Fsrc%2Fzephyropen%2Fsocket%2Fmulticast%2Fgui SVN], or as a [http://verticalchallenge.org/oculus/oculus.jar JAR ready to use.]
