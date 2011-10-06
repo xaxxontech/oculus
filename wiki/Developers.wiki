@@ -1,0 +1,15 @@
+#labels Phase-Implementation
+#How to setup oculus for development.
+
+= Introduction =
+
+As a developer you have two options. Extend the source code from SVN, or hook into the command server. The benefit of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java command server] is that you can get updates without having to merge your code. Also, because it is just a simple socket connection, you can use any language you prefer. So, C, ruby, python etc is all going to be supported this way. The last benefit is that you can connect to robot without logging into the web based control screens. Basic 'zombie' mode requires no Currently only a few commands are available, but will be extended as there is need. 
+
+|| command || description ||
+|| _*find*_ || request a 'dockgrab' command and return the coordinates for the dock. ||
+|| _*dock*_ || initiate a docking ||
+|| _*undock*_ || back to bot away from the doc ||
+|| _*cam*_ || turn on the video stream so you can do _find_ commands ||
+|| _*state*_ || dump current variables in the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/oculus/State.java State] object ||
+|| _*tcp*_ || returns the number of active TCP Connections ||
+|| _*users*_ || returns the number of active web users ||
