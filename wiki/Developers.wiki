@@ -24,7 +24,6 @@ in your [conf/oculus_settings.txt http://code.google.com/p/oculus/wiki/Oculus_Se
 || _*factory*_ || restore factory settings ||
 || _*reboot*_ || restarts the oculus web application ||
 
-These values c
 An example SWING client is avalable in [http://code.google.com/p/zephyropen/source/browse/#svn%2Fzephyropen%2Fsrc%2Fzephyropen%2Fsocket%2Fmulticast%2Fgui SVN], or as a [http://verticalchallenge.org/oculus/oculus.jar JAR ready to use.]
 
 Running the jar, build a simple bat file like:
