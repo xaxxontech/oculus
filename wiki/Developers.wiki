@@ -43,6 +43,8 @@ The parameters are, robot's local ip, port number, user name, hashed password. (
 
 This is available in plain text over TCP, but you client must first send user name and password first. As an example of how the TCP connections are sent updates, see below. We can chat with the logged in users and any TCP connections as well. All tcp commands will be seen in the web user's screens as chat text for now, so you''ll see the requests the clients are making. 
 
-An Example Screen Shot below:
-
-<img src="http://verticalchallenge.org/wp-content/uploads/show-comm.png"/>
+An Example in screen capture below:
+<br />
+<wiki:video url="http://www.youtube.com/watch?v=-JDNDlVpnhk"/>
+<br />
+_watch in 480p if you want to be able to actually read the text on screen_
