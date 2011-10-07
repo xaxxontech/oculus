@@ -11,7 +11,7 @@ To enable this feature, you must set:
 developer true
 }}} 
 
-in your conf/oculus_settings.txt file.
+in your [conf/oculus_settings.txt http://code.google.com/p/oculus/wiki/Oculus_Settings_File]
 
 || command || description ||
 || _*find*_ || request a 'dockgrab' command and return the coordinates for the dock. ||
@@ -48,3 +48,5 @@ An Example in screen capture below:
 <wiki:video url="http://www.youtube.com/watch?v=-JDNDlVpnhk"/>
 <br />
 _watch in 480p if you want to be able to actually read the text on screen_
+<br />
+<g:plusone size="medium"></g:plusone>
