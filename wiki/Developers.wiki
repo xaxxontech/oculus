@@ -48,4 +48,32 @@ An Example in screen capture below:
 <br />
 _watch in 480p if you want to be able to actually read the text on screen_
 <br />
+
+== Deploying class and java script files ==
+
+If you are coding directly in java, here is deployment script that will move your files over to the robot. The use of 'sudo' and 'chown' are required to make SMB shares behave. 
+
+{{{
+#! /bin/sh
+
+LOCAL="/Users/brad/Documents/workspace/Oculus/webapps/oculus"
+REMOTE="/Volumes/temp/oculus/webapps/oculus"
+
+sudo rm -rf $REMOTE/*.html
+sudo rm -rf $REMOTE/javascript
+sudo rm -rf $REMOTE/WEB-INF/classes
+sudo rm -rf $REMOTE/WEB-INF/src
+#sudo rm -rf $REMOTE/flash
+
+sudo cp $LOCAL/*.html $REMOTE/
+sudo cp -r $LOCAL/javascript $REMOTE/
+sudo cp -r $LOCAL/WEB-INF/classes $REMOTE/WEB-INF/classes/
+sudo cp -r $LOCAL/WEB-INF/src $REMOTE/WEB-INF/
+#sudo cp -r $LOCAL/flash $REMOTE/
+        
+sudo chown -R brad $REMOTE
+date
+}}}
+
+<br />
 <g:plusone size="medium"></g:plusone>
