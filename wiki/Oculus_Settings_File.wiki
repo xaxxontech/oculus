@@ -1,0 +1,44 @@
+#labels Phase-Implementation
+= Configuration File =
+
+The file plain text file {{{oculus/conf/oculus_settings.txt}}} holds all the configuration settings for the robot.. The basic settings are all set via the web screens, but you can edit this file by hand if you are a developer or want to get email alerts. It is important to know that this file will be maintained by the oculus software, so you can't add name and value pairs that are not listed in Factory Settings or Optional Settings. If you care to make backups of your users, this is where you will find the accounts you've created from the menu in the web app. 
+
+= Details =
+
+Lets look at each line in this file:
+
+||# required settings || a generated comment ||
+||skipsetup || is set to 'yes' or 'no' to control the first screen you get on boot.  <br>When first installing this  is set to 'no' so you'll be directed to the initialize screen. || 
+||speedslow|| speed control is done via PWM and the range is 0-255, default is 115 ||
+||speedmed|| 180 is the default. range is 0-255 ||
+||steeringcomp|| this setting will compensate for drifting left/right on the DC motors. default is 128||
+||camservohoriz|| is the servo position that will make the periscope horizontal.||
+||camposmax|| is the upper limit of the servo for looking up||
+||camposmin|| is the lower limit of the servo for looking down||
+||nudgedelay|| is the time in milli seconds to move the robot when doing a nudge command. <br>The longer this delay, the further the bot will travel per click. default is "150"||
+||docktarget|| is a generated string of floating point numbers about your robot  ||
+||vidctroffset|| this will center the camera ||
+||vlow|| low video quality ||
+||vmed|| medium video quality ||
+||vhigh || high video quality default values are "640_480_8_85" || 
+||vfull || full quality video setting 640_480_8_95 ||
+||vcustom || custom video settings 1024_768_8_85 ||
+||vset||  defaults to "vmed", medium quality video  || 
+||maxclicknudgedelay  || maximum time in milli seconds for a nudge command  ||
+||clicknudgedelaymomentumfactor || default is 0.7 ||
+||clicknudgemomentummult || default is 0.7 ||
+||maxclickcam || largest change permitted for camera moves ||
+||mute_rov_on_move||set to "true" to turn the mic off when moving. This reduces the back ground noise from the motors. ||
+||videoscale||use this to scale the video screen. example "150" would zoom in by 50%, where "100" is the default ||
+||volume|| sets the system volume. range is 0-100 ||
+||holdservo|| set to "true" to keep the periscope servo asserted ||
+||# optional settings|| generated comment ||
+||developer|| set to "true" to enable TCP connections and extra debugging info ||
+||reboot|| set to "true" if you want your robot to reboot every two days ||
+||loginnotify || set to "true" if you want to be notified on loggin ||
+||# user list|| generated comment || 
+||salt|| randomly created at initialize or factory reset ||
+||user0||_*user name/pass list just follows simple numbering convention*_||
+||pass0|| hashed password _(uses salt above)_ ||
+||user1||colin (as an example) ||
+||pass1||hashed password example "TXDhSdBhjuKNNaiM37cNrvG+xuU" || 
