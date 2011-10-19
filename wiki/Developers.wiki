@@ -1,4 +1,4 @@
-#labels Phase-Implementation
+#labels Phase-Implementation,Featured,Beta
 ==How to setup oculus for development==
 
 As a developer you have two options. Extend the source code from SVN, or hook into the command server. The benefit of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java command server] is that you can get updates without having to merge your code. Also, because it is just a simple socket connection, you can use any language you prefer. So, C, ruby, python etc is all going to be supported this way. The last benefit is that you can connect to robot without logging into the web based control screens. Basic 'zombie mode' requires a valid user name and password, but you are not going to show up as a full fledged user in the web app controls. 
@@ -11,18 +11,25 @@ To enable this feature, you must set:
 developer true
 }}} 
 
-in your [conf/oculus_settings.txt http://code.google.com/p/oculus/wiki/Oculus_Settings_File]
+in your [http://code.google.com/p/oculus/wiki/Oculus_Settings_File Oculus/conf/oculus_settings.txt]
 
 || command || description ||
 || _*find*_ || request a 'dockgrab' command and return the coordinates for the dock. ||
 || _*dock*_ || initiate a docking ||
 || _*undock*_ || back to bot away from the doc ||
-|| _*cam*_ || turn on the video stream so you can do _find_ commands ||
+|| _*nudge*_ || left|right|backward|forward  ||
+|| _*move*_ || left|right|backward|forward  ||
+|| _*reboot*_ || restarts the oculus web application ||
+|| _*publish*_ || turn on the video stream so you can do _find_ commands ||
 || _*state*_ || dump current variables in the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/oculus/State.java State] object ||
+|| _*state xxx yyy*_ || will set variable xxx to the value of yyy in the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/oculus/State.java State Objects] ||
 || _*tcp*_ || returns the number of active TCP Connections ||
 || _*users*_ || returns the number of active web users ||
 || _*factory*_ || restore factory settings ||
+|| _*restart*_ || restarts the host computer ||
 || _*reboot*_ || restarts the oculus web application ||
+|| _*version*_ || gets the current version of the robot's software. ||
+|| _*settings*_ || dumps all the settings from the config file. _will not send email password._ ||
 
 An example SWING client is avalable in [http://code.google.com/p/zephyropen/source/browse/#svn%2Fzephyropen%2Fsrc%2Fzephyropen%2Fsocket%2Fmulticast%2Fgui SVN], or as a [http://verticalchallenge.org/oculus/oculus.jar JAR ready to use.]
 
@@ -74,6 +81,66 @@ sudo cp -r $LOCAL/WEB-INF/src $REMOTE/WEB-INF/
 sudo chown -R brad $REMOTE
 date
 }}}
+
+=== Samba not working? Use FTP ==
+
+If running an FTP server on the robot, you can use this script to deploy your class files. 
+
+{{{
+
+#!/bin/sh
+
+HOST='192.168.1.xxx'
+USER='brad'
+PASSWD='xxxx'
+
+ftp -v -n $HOST <<END_SCRIPT
+quote USER $USER
+quote PASS $PASSWD
+
+binary
+
+cd webapps/Oculus/WEB-INF/classes/oculus
+lcd webapps/Oculus/WEB-INF/classes/oculus
+prompt off
+mput *.class
+
+cd ../developer
+lcd ../developer
+prompt off
+mput *.class
+
+cd sonar
+lcd sonar
+prompt off
+mput *.class
+
+cd ../ftp
+lcd ../ftp
+prompt off
+mput *.class
+
+
+cd ../terminal
+lcd ../terminal
+prompt off
+mput *.class
+
+cd ../gui
+lcd ../gui
+prompt off
+mput *.class
+
+bye
+quit
+END_SCRIPT
+
+java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.xxx 4444 user pass restart bye
+
+exit 0
+}}}
+
+Note that you can open a terminal session and then send a few commands. In this case, restart the server and then logout. This basically uploads the changes and gets the server back up. 
 
 <br />
 <g:plusone size="medium"></g:plusone>
