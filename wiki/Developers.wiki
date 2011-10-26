@@ -8,10 +8,12 @@ commands are available, but will be extended as there is need.
 To enable this feature, you must set: 
 
 {{{
-developer true
+commandport 4444
 }}} 
 
 in your [http://code.google.com/p/oculus/wiki/Oculus_Settings_File Oculus/conf/oculus_settings.txt]
+
+This will turn on the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java Command Server] and take most of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/oculus/PlayerCommands.java PlayerCommands].
 
 || command || description ||
 || _*find*_ || request a 'dockgrab' command and return the coordinates for the dock. ||
@@ -31,18 +33,17 @@ in your [http://code.google.com/p/oculus/wiki/Oculus_Settings_File Oculus/conf/o
 || _*version*_ || gets the current version of the robot's software. ||
 || _*settings*_ || dumps all the settings from the config file. _will not send email password._ ||
 
-An example SWING client is avalable in [http://code.google.com/p/zephyropen/source/browse/#svn%2Fzephyropen%2Fsrc%2Fzephyropen%2Fsocket%2Fmulticast%2Fgui SVN], or as a [http://verticalchallenge.org/oculus/oculus.jar JAR ready to use.]
 
-Running the jar, build a simple bat file like:
+The Terminal can be launched from the command line, shell script or right from eclipse. You can use and valid user, pass word pair in plain text, or the hashed value. 
 
 {{{
-start javaw -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8kbFy34L63A8=  
+java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 brad password
 }}}
 
-Or on osx/linux do this instead: 
+Or like this.. 
 
 {{{
-java -jar oculus.jar 192.168.1.xxx 4444 brad +tVfDvTicIG5chk8ibFky34L63A8= &
+java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 brad password +tVfDvTicIG5chk8ibFky34L63A8= &
 }}}
 
 The parameters are, robot's local ip, port number, user name, hashed password. (find these in oculus/conf/oculus_settings.txt)
@@ -87,12 +88,11 @@ date
 If running an FTP server on the robot, you can use this script to deploy your class files. 
 
 {{{
-
 #!/bin/sh
 
-HOST='192.168.1.xxx'
+HOST='192.168.1.176'
 USER='brad'
-PASSWD='xxxx'
+PASSWD='xxx'
 
 ftp -v -n $HOST <<END_SCRIPT
 quote USER $USER
@@ -100,43 +100,34 @@ quote PASS $PASSWD
 
 binary
 
+pwd
 cd webapps/Oculus/WEB-INF/classes/oculus
 lcd webapps/Oculus/WEB-INF/classes/oculus
-prompt off
 mput *.class
 
+pwd
+cd commport
+lcd commport
+mput *.class
+
+pwd
+cd ..
+lcd ..
+
+pwd
 cd ../developer
 lcd ../developer
-prompt off
 mput *.class
-
-cd sonar
-lcd sonar
-prompt off
-mput *.class
-
-cd ../ftp
-lcd ../ftp
-prompt off
-mput *.class
-
 
 cd ../terminal
 lcd ../terminal
-prompt off
-mput *.class
-
-cd ../gui
-lcd ../gui
-prompt off
 mput *.class
 
 bye
 quit
 END_SCRIPT
 
-java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.xxx 4444 user pass restart bye
-
+java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 $USER $PASSWD restart bye
 exit 0
 }}}
 
