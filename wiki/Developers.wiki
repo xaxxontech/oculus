@@ -43,7 +43,7 @@ java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 
 Or like this.. 
 
 {{{
-java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 brad password +tVfDvTicIG5chk8ibFky34L63A8= &
+java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 brad +tVfDvTicIG5chk8ibFky34L63A8= & 
 }}}
 
 The parameters are, robot's local ip, port number, user name, hashed password. (find these in oculus/conf/oculus_settings.txt)
