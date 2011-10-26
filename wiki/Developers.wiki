@@ -1,7 +1,7 @@
 #labels Phase-Implementation,Featured,Beta
 ==How to setup oculus for development==
 
-As a developer you have two options. Extend the source code from SVN, or hook into the command server. The benefit of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java command server] is that you can get updates without having to merge your code. Also, because it is just a simple socket connection, you can use any language you prefer. So, C, ruby, python etc is all going to be supported this way. The last benefit is that you can connect to robot without logging into the web based control screens. Basic 'zombie mode' requires a valid user name and password, but you are not going to show up as a full fledged user in the web app controls. 
+As a developer you have two options. Extend the source code from SVN, or hook into the command server. The benefit of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java CommandServer] is that you can get updates without having to merge your code. Also, because it is just a simple socket connection, you can use any language you prefer. So, C, ruby, python etc is all going to be supported this way. The last benefit is that you can connect to robot without logging into the web based control screens. Basic 'zombie mode' requires a valid user name and password, but you are not going to show up as a full fledged user in the web app controls. 
 
 commands are available, but will be extended as there is need. 
 
@@ -49,6 +49,12 @@ java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 
 The parameters are, robot's local ip, port number, user name, hashed password. (find these in oculus/conf/oculus_settings.txt)
 
 This is available in plain text over TCP, but you client must first send user name and password first. As an example of how the TCP connections are sent updates, see below. We can chat with the logged in users and any TCP connections as well. All tcp commands will be seen in the web user's screens as chat text for now, so you''ll see the requests the clients are making. 
+
+If you extend from AbstractTerminal, you can avoid dealing with just the State object and the out going stream object. The changes you make in these classes actually run on your workstation you code/test on, so no need to re-deploy and restart the server. Another reason for using the CommandServer is faster development. 
+
+<br> You simply send commands and watch for changes in state ans seen in this example: 
+ 
+http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/terminal/FindHome.java
 
 An Example in screen capture below:
 <br />
