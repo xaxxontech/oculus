@@ -34,7 +34,15 @@ This will turn on the [http://code.google.com/p/oculus/source/browse/trunk/oculu
 || _*settings*_ || dumps all the settings from the config file. _will not send email password._ ||
 
 
-The Terminal can be launched from the command line, shell script or right from eclipse. You can use and valid user, pass word pair in plain text, or the hashed value. 
+The Terminal can be launched from the command line, shell script or right from eclipse. You can use and valid user, pass word pair in plain text, or the hashed value. You can use telnet and then login with user:pass combo at the prompt. 
+
+{{{
+telnet 192.168.1.176 4444 
+Connected to 192.168.1.176.
+Escape character is '^]'.
+oculus version 438 ready for login.
+user:pass 
+}}}
 
 {{{
 java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 brad password
