@@ -40,5 +40,5 @@ Lets look at each line in this file:
 ||salt|| randomly created at initialize or factory reset ||
 ||user0||_*user name/pass list just follows simple numbering convention*_||
 ||pass0|| hashed password _(uses salt above)_ ||
-||user1||colin (as an example) ||
-||pass1||hashed password example "TXDhSdBhjuKNNaiM37cNrvG+xuU" || 
+||user1||randomuser(as an example) ||
+||pass1||hashed password example "TXDhSdBhjuRNNaiM37cNrvG+xuU" || 
