@@ -48,10 +48,10 @@ user:pass
 java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 brad password
 }}}
 
-Or like this.. 
+Or like this using the hashed password. 
 
 {{{
-java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 brad +tVfDvTicIG5chk8ibFky34L63A8= & 
+java developer.terminal.Terminal 192.168.1.176 4444 brad +tVfDvTicIG5chk8ibFky34L63A8= & 
 }}}
 
 The parameters are, robot's local ip, port number, user name, hashed password. (find these in oculus/conf/oculus_settings.txt)
@@ -76,7 +76,7 @@ _watch in 480p if you want to be able to actually read the text on screen_
 If you are coding directly in java, here is deployment script that will move your files over to the robot. The use of 'sudo' and 'chown' are required to make SMB shares behave. 
 
 {{{
-#! /bin/sh
+#!/bin/sh
 
 LOCAL="/Users/brad/Documents/workspace/Oculus/webapps/oculus"
 REMOTE="/Volumes/temp/oculus/webapps/oculus"
@@ -97,52 +97,39 @@ sudo chown -R brad $REMOTE
 date
 }}}
 
-=== Samba not working? Use FTP ==
+=== Samba not working? Use curl or ftp ==
 
-If running an FTP server on the robot, you can use this script to deploy your class files. 
+If running an FTP server on the robot, you can use this script to deploy your class files. This is useful if your robot is not on your LAN and you still need to update and restart the server. (note: this uses the same user, password pair for FTP and oculus terminal.)
 
 {{{
 #!/bin/sh
 
+# don't put your passwords in scripts
+PASSWD=$1
 HOST='192.168.1.176'
+PORT='4444'
 USER='brad'
-PASSWD='xxx'
 
-ftp -v -n $HOST <<END_SCRIPT
-quote USER $USER
-quote PASS $PASSWD
+function doFolder {
+	echo $1
+	for f in $1/*.class
+	do
+		curl -T "$f" ftp://$HOST/$1 --user $USER:$PASSWD --ftp-create-dirs
+	done
+}
 
-binary
+doFolder 'webapps/Oculus/WEB-INF/classes/oculus/'
+doFolder 'webapps/Oculus/WEB-INF/classes/oculus/commport/'
+doFolder 'webapps/Oculus/WEB-INF/classes/developer/'
+doFolder 'webapps/Oculus/WEB-INF/classes/developer/terminal/'
+doFolder 'webapps/Oculus/WEB-INF/classes/developer/sonar/'
+doFolder 'webapps/Oculus/WEB-INF/classes/developer/ftp/'
 
-pwd
-cd webapps/Oculus/WEB-INF/classes/oculus
-lcd webapps/Oculus/WEB-INF/classes/oculus
-mput *.class
+# change if script file not in root 
+CLASSPATH='webapps/oculus/WEB-INF/classes/'
 
-pwd
-cd commport
-lcd commport
-mput *.class
-
-pwd
-cd ..
-lcd ..
-
-pwd
-cd ../developer
-lcd ../developer
-mput *.class
-
-cd ../terminal
-lcd ../terminal
-mput *.class
-
-bye
-quit
-END_SCRIPT
-
-java -classpath "./webapps/oculus/WEB-INF/classes/" developer.terminal.Terminal 192.168.1.176 4444 $USER $PASSWD restart bye
-exit 0
+# reboot oculus
+java -classpath $CLASSPATH developer.terminal.Terminal $HOST $PORT $USER $PASSWD restart bye
 }}}
 
 Note that you can open a terminal session and then send a few commands. In this case, restart the server and then logout. This basically uploads the changes and gets the server back up. 
