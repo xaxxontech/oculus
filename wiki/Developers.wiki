@@ -16,6 +16,7 @@ in your [http://code.google.com/p/oculus/wiki/Oculus_Settings_File Oculus/conf/o
 This will turn on the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/developer/CommandServer.java Command Server] and take most of the [http://code.google.com/p/oculus/source/browse/trunk/oculus/WEB-INF/src/oculus/PlayerCommands.java PlayerCommands].
 
 || command || description ||
+|| *tail* || returns the end of the current log file ||
 || _*find*_ || request a 'dockgrab' command and return the coordinates for the dock. ||
 || _*dock*_ || initiate a docking ||
 || _*undock*_ || back to bot away from the doc ||
