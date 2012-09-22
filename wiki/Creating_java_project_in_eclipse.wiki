@@ -1,3 +1,4 @@
+#labels Featured
 *Creating new eclipse project from svn:*
   # download oculus win32 archive, unpack
   # make backup copies of Oculus/webapps/oculus/flash & images folders and their contents, you'll need to recopy them back later
@@ -20,6 +21,6 @@
 
 *Check settings*
 
-http://oculus.googlecode.com/files/libraries_path.jpg
+http://oculus.googlecode.com/files/libraries_path.png
 
-http://oculus.googlecode.com/files/src_path.jpg
+http://oculus.googlecode.com/files/src_path.png
