@@ -9,7 +9,7 @@
   # checkout /trunk/oculus as new project 'oculus'
   # under project properties > java build path:
     * remove src folder created by default
-    * add WEB-INF/src and WEB-INF/classes as src folders
+    * add WEB-INF/src as src folder
     * change default output folder to oculus/WEB-INF/classes
     * add Jars > select all under /oculus/WEB-INF/lib > add
     * add External Jars:  red5.jar (*NOTE* you have link to a COPY of red5.jar, so no conflits with red5 core operation)
