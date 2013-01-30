@@ -1,22 +1,22 @@
 #labels Featured
 *Creating new eclipse project from svn:*
-  # download oculus win32 archive, unpack
+  # download OCULUS FULL archive, unpack
   # make backup copies of Oculus/webapps/oculus/flash & images folders and their contents, you'll need to recopy them back later
   # delete Oculus/webapps/oculus folder and contents
-  # open eclipse with subclipse plugin
+  # open eclipse (with subclipse plugin)
   # set working directory to Oculus/webapps
   # set svn repository to https://oculus.googlecode.com/svn/trunk/ 
-    * select the 'oculus' branch ('flex' can be imported into xxxbuilder)
+    * select the 'oculus' branch
   # checkout /trunk/oculus as new project 'oculus'
   # under project properties > java build path:
     * remove src folder created by default
     * add WEB-INF/src as src folder
     * change default output folder to oculus/WEB-INF/classes
     * add Jars > select all under /oculus/WEB-INF/lib > add
-    * add External Jars:  red5.jar (*NOTE* you have link to a COPY of red5.jar, so no conflits with red5 core operation)
+    * add External Jars:  red5.jar (*NOTE* you have link to a COPY of red5.jar, so no conflicts with red5 core operation)
   # Change project setup, add JUnit4 library to build path
   # copy flash and images folders and their contents (from backup created in step 2) to Oculus/
-  # make sure Oculus/webapps/.metadata folder is hidden or red5 will try to run it
+  # make sure Oculus/webapps/.metadata folder is hidden or red5 will try to run it (windows)
 
 
 *Check settings*
