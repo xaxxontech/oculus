@@ -1,44 +1,144 @@
 #labels Phase-Implementation
-= Configuration File =
+THE oculus_settings.txt CONFIG FILE
 
-The file plain text file {{{oculus/conf/oculus_settings.txt}}} holds all the configuration settings for the robot.. The basic settings are all set via the web screens, but you can edit this file by hand if you are a developer or want to get email alerts. It is important to know that this file will be maintained by the oculus software, so you can't add name and value pairs that are not listed in Factory Settings or Optional Settings. If you care to make backups of your users, this is where you will find the accounts you've created from the menu in the web app. 
+The oculus_settings.txt file is located under /Oculus/conf/, and contains all settings pertaining to Oculus. This file is generally maintained by the application but a few advanced settings are changed manually. It is split into 3 sections: 'GUI Settings,' 'Manual Settings,' and 'User List.'
+GUI settings are set within the application itself, as is the user list. Each line represents a single value, with the setting name, followed by a space, then the value. 
+If the file is deleted, or 'restore factory settings' is selected from initialize.html, it is re-generated with default values, on application restart.
+<br>
 
-= Details =
+GUI SETTINGS
 
-Lets look at each line in this file:
+*skipsetup* _yes | no_
+  indicates whether the server application starts by launching initialize.html, or server.html. After initial setup, typically server.html is always launched
 
-||# required settings || a generated comment ||
-||skipsetup || is set to 'yes' or 'no' to control the first screen you get on boot.  <br>When first installing this  is set to 'no' so you'll be directed to the initialize screen. || 
-||speedslow|| speed control is done via PWM and the range is 0-255, default is 115 ||
-||speedmed|| 180 is the default. range is 0-255 ||
-||steeringcomp|| this setting will compensate for drifting left/right on the DC motors. default is 128||
-||camservohoriz|| is the servo position that will make the periscope horizontal.||
-||camposmax|| is the upper limit of the servo for looking up||
-||camposmin|| is the lower limit of the servo for looking down||
-||nudgedelay|| is the time in milli seconds to move the robot when doing a nudge command. <br>The longer this delay, the further the bot will travel per click. default is "150"||
-||docktarget|| is a generated string of floating point numbers about your robot  ||
-||vidctroffset|| this will center the camera ||
-||vlow|| low video quality ||
-||vmed|| medium video quality ||
-||vhigh || high video quality default values are "640_480_8_85" || 
-||vfull || full quality video setting 640_480_8_95 ||
-||vcustom || custom video settings 1024_768_8_85 ||
-||vset||  defaults to "vmed", medium quality video  || 
-||maxclicknudgedelay  || maximum time in milli seconds for a nudge command  ||
-||clicknudgedelaymomentumfactor || default is 0.7 ||
-||clicknudgemomentummult || default is 0.7 ||
-||maxclickcam || largest change permitted for camera moves ||
-||mute_rov_on_move||set to "true" to turn the mic off when moving. This reduces the back ground noise from the motors. ||
-||videoscale||use this to scale the video screen. example "150" would zoom in by 50%, where "100" is the default ||
-||volume|| sets the system volume. range is 0-100 ||
-||holdservo|| set to "true" to keep the periscope servo asserted ||
-||# optional settings|| generated comment ||
-||developer|| set to "true" to enable TCP connections and extra debugging info ||
-||reboot|| set to "true" if you want your robot to reboot every two days ||
-||loginnotify || set to "true" if you want to be notified on loggin ||
-||# user list|| generated comment || 
-||salt|| randomly created at initialize or factory reset ||
-||user0||_*user name/pass list just follows simple numbering convention*_||
-||pass0|| hashed password _(uses salt above)_ ||
-||user1||randomuser(as an example) ||
-||pass1||hashed password example "TXDhSdBhjuRNNaiM37cNrvG+xuU" || 
+*speedslow* _{INT}_
+  (0-255) PWM value used by ArduinOculus to drive the wheel motors at slow speed
+
+*speedmed* _{INT}_
+  (0-255) PWM value used by ArduinOculus to drive the wheel motors at medium speed. (speedfast is always 255)
+
+*steeringcomp* _{INT}_
+  (0-255) used to set wheel motors steering compensation, 128 is no compensation
+
+*camservohoriz* _{INT}_
+  (0-255) mirror tilt servo position at horizontal
+
+*camposmax* _{INT}_
+  _(0-255) maximum mirror tilt servo position_
+
+*camposmin* _{INT}_
+  _(0-255) minimum mirror tilt servo position_
+
+*nudgedelay* _{INT}_
+  time in milliseconds for wheel motors nudge move
+
+*docktarget* _{STRING}_
+  dock calibration proportions/metrics
+
+*vidctroffset* _{INT}_
+  manual dock line offset from center, in pixels
+
+*vlow* _{INT}_
+  low video settings width, height, fps, and bandwidth(0-100) 
+
+*vmed* _{INT}_
+  medium video settings width, height, fps, and bandwidth(0-100) 
+
+*vhigh* _{INT}_
+  high video settings width, height, fps, and bandwidth(0-100) 
+
+*vfull* _{INT}_
+  full video settings width, height, fps, and bandwidth(0-100) 
+
+*vcustom* _{INT}_
+  custom video settings width, height, fps, and bandwidth(0-100) 
+
+*vset* _{STRING}_
+  current video setting
+
+*maxclicknudgedelay* _{INT}_
+  Clicksteer time in milliseconds for wheels to shift video image horizontally from the center to the very left or right edge of the screen
+
+*clicknudgemomentummult* _{DOUBLE}_
+  Momentum multiplier affecting horizontal clicksteer accuracy
+
+*maxclickcam* _{INT}_
+  vertical (mirror tilt) clicksteer setting 
+
+*muteonrovmove* _true | false_
+  mutes robot mic on wheel motor movement
+
+*videoscale* _{INT}_
+  scale of web browser client video
+
+*volume* _{INT}_
+  (percent) system volume
+
+*holdservo* _true | false_
+  mirror tilt servo power brakes
+
+*loginnotify* _true | false_
+  controls voice synthesizer announcement of user login
+
+*reboot* _true | false_
+  set to reboot laptop every 48 hours (Windows only)
+
+*selfmicpushtotalk* _true | false_
+  enable/disable push 'T' to un-mute self mic in web browser client
+<br>
+
+MANUAL SETTINGS
+
+*email_smtp_server* {STRING}
+  SMTP server for outgoing email. 'Disabled' if unused
+
+*email_smtp_port* {STRING}
+  SMTP server port for outgoing email
+
+*email_username* {STRING}
+  username if SMTP server for outgoing email requires authorization. 'Disabled' if unused
+
+*email_password* {STRING}
+  password if SMTP server for outgoing email requires authorization. 'Disabled' if unused. WARNING: PLAIN TEXT
+
+*email_from_address* {STRING}
+  return email address for outgoing email. 'Disabled' if unused
+
+*developer* _true | false_
+  enable (alpha) developer features
+
+*debugenabled* _true | false_
+  enable verbose logging
+
+*commandport* {INT}
+  TCP port for socket client connection. 'Disabled' if unused
+
+*stopdelay* {INT}
+  time in milliseconds for wheels to come to full stop from max speed
+
+*vself* {INT}
+  web browser client self video settings width, height, fps, and bandwidth(0-100) 
+
+*arduinoculus* {STRING}
+  ArduinOculus microcontroller serial port. Set to 'discovery' for auto-detection, 'disabled,' or port name
+
+*oculed* {STRING}
+  OcuLED Lights serial port. Set to 'discovery' for auto-detection, 'disabled,' or port name
+<br>
+
+USER LIST
+
+*salt* {STRING}
+  randomly generated key used in password encryption
+
+*user0* {STRING}
+  admin username
+
+*pass0* {STRING}
+  admin password, encrypted
+
+*user1..2..3..* {STRING}
+  additional usernames (non admin)
+
+*pass1..2..3..* {STRING}
+  additional passwords, encrypted (non admin)
